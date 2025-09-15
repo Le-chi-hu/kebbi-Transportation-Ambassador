@@ -117,8 +117,60 @@ std::vector<Stage> GetAllStages() {
         "這個標誌是一個紅色外框，裡面有一個戴帽子的人，它代表禁止行人通行，只要看到這個牌子你就不能走過去喔！那我們認識交通號誌的練習就先告一段落了，如果前面的挑戰答錯的話也不要氣餒，接下來還有很多挑戰等著大家喔!", 
         30s
     });
+    
+    // Stage 9: Risk perception(危險感知)
+    stages.emplace_back(Stage{
+        "Risk perception", 
+        R"(你是一台名叫凱比的交通安全宣導器人，正在和一群年幼的小朋友聊天。請遵守以下規則：
+        1. 回答必須使用非常簡潔的中文，不能使用其他語言。
+        2. 所有數字必須使用對應的繁體中文字表示，例如「一」、「二」、「三」，不可使用阿拉伯數字。
+        3. 請不要輸出任何表情符號。
+        4. 請不要輸出任何括號。
+        )", 
+        "觀看影片，如果你感覺到影片裡的小朋友很危險，請按下螢幕的紅色按鈕", 
+        40s
+    });
 
-    // Stage 9: Crossroad Simulation (過馬路情境模擬)
+    // Stage 10: bus rules1(搭乘大眾運輸守則)
+    stages.emplace_back(Stage{
+        "Public Transportation rules", 
+        R"(你是一台名叫凱比的交通安全宣導器人，正在和一群年幼的小朋友聊天。請遵守以下規則：
+        1. 回答必須使用非常簡潔的中文，不能使用其他語言。
+        2. 所有數字必須使用對應的繁體中文字表示，例如「一」、「二」、「三」，不可使用阿拉伯數字。
+        3. 請不要輸出任何表情符號。
+        4. 請不要輸出任何括號。
+        )", 
+        "搭乘公車時要怎麼做，司機伯伯才能看到你呢?", 
+        20s
+    });
+    
+    // Stage 11: bus rules2(搭乘大眾運輸守則)
+    stages.emplace_back(Stage{
+        "Public Transportation rules", 
+        R"(你是一台名叫凱比的交通安全宣導器人，正在和一群年幼的小朋友聊天。請遵守以下規則：
+        1. 回答必須使用非常簡潔的中文，不能使用其他語言。
+        2. 所有數字必須使用對應的繁體中文字表示，例如「一」、「二」、「三」，不可使用阿拉伯數字。
+        3. 請不要輸出任何表情符號。
+        4. 請不要輸出任何括號。
+        )", 
+        "快到站了，要怎麼讓司機伯伯知道你要下車了呢?", 
+        20s
+    });
+
+    // Stage 12: bus rules ans(搭乘大眾運輸守則)
+    stages.emplace_back(Stage{
+        "Public Transportation rules", 
+        R"(你是一台名叫凱比的交通安全宣導器人，正在和一群年幼的小朋友聊天。請遵守以下規則：
+        1. 回答必須使用非常簡潔的中文，不能使用其他語言。
+        2. 所有數字必須使用對應的繁體中文字表示，例如「一」、「二」、「三」，不可使用阿拉伯數字。
+        3. 請不要輸出任何表情符號。
+        4. 請不要輸出任何括號。
+        )", 
+        "回答得很棒，要記得提早舉手和在下一個站前按鈴下車喔", 
+        15s
+    });
+
+    // Stage 13: Crossroad Simulation (過馬路情境模擬)
     stages.emplace_back(Stage{
         "crossroad_simulation", 
         R"(你是一台名叫凱比的交通安全宣導機器人，正在和一群年幼的小朋友進行情境模擬，引導他們正確地過馬路。請遵守以下規則：
@@ -132,7 +184,7 @@ std::vector<Stage> GetAllStages() {
         60s
     });
 
-    // Stage 10: Bus Stop Simulation (搭公車情境模擬)
+    // Stage 14: Bus Stop Simulation (搭公車情境模擬)
     stages.emplace_back(Stage{
         "bus_stop_simulation", 
         R"(你是一台名叫凱比的交通安全宣導機器人，正在和一群年幼的小朋友進行情境模擬，教導他們如何安全地搭公車。請遵守以下規則：
@@ -147,7 +199,7 @@ std::vector<Stage> GetAllStages() {
         60s
     });
 
-    // Stage 11: Bike Safety Simulation (騎腳踏車情境模擬)
+    // Stage 15: Bike Safety Simulation (騎腳踏車情境模擬)
     stages.emplace_back(Stage{
         "bike_safety_simulation", 
         R"(你是一台名叫凱比的交通安全宣導機器人，正在和一群年幼的小朋友進行情境模擬，教導他們如何安全地騎腳踏車。請遵守以下規則：
@@ -162,7 +214,7 @@ std::vector<Stage> GetAllStages() {
         60s
     });
 
-    // Stage 12: Summary and Rewards (總結與獎勵)
+    // Stage 16: Summary and Rewards (總結與獎勵)
     stages.emplace_back(Stage{
         "summary_and_rewards", 
         R"(你是一台名叫凱比的交通安全宣導機器人，正在和一群年幼的小朋友進行總結。請遵守以下規則：
