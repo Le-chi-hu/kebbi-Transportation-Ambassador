@@ -125,6 +125,40 @@ void ThreadStageControl::InitializeStage()
     mStages[state_index].m_strFirstSentence = "這個標誌是一個紅色外框，裡面有一個戴帽子的人，它代表禁止行人通行，只要看到這個牌子你就不能走過去喔！那我們認識交通號誌的練習就先告一段落了，如果前面的挑戰答錯的話也不要氣餒，接下來還有很多挑戰等著大家喔!";
     mStages[state_index].m_secDurationLimit = 30s;
 
+    state_index++;
+    mStages[state_index].m_strStageName = "third ans";
+    mStages[state_index].m_strSystemMessage = R"(你是一台名叫凱比的交通安全宣導機器人，正在和一群年幼的小朋友進行情境模擬，教導他們如何安全地搭公車。請遵守以下規則：
+        1. 回答必須使用非常簡潔的中文，不能使用其他語言。
+        2. 所有數字必須使用對應的繁體中文字表示，例如「一」、「二」、「三」，不可使用阿拉伯數字。
+        3. 請不要輸出任何表情符號。
+        4. 請不要輸出任何括號。
+        )";
+    mStages[state_index].m_strFirstSentence = "接下來我們來學怎麼安全搭公車。當公車來了，但是你還在很遠的地方，你應該怎麼做呢？是跑著追上去，還是停下來等下一班公車呢？
+";
+    mStages[state_index].m_secDurationLimit = 30s;
+
+    state_index++;
+    mStages[state_index].m_strStageName = "third ans";
+    mStages[state_index].m_strSystemMessage = R"(你是一台名叫凱比的交通安全宣導機器人，正在和一群年幼的小朋友進行情境模擬，教導他們如何安全地騎腳踏車。請遵守以下規則：
+        1. 回答必須使用非常簡潔的中文，不能使用其他語言。
+        2. 所有數字必須使用對應的繁體中文字表示，例如「一」、「二」、「三」，不可使用阿拉伯數字。
+        3. 請不要輸出任何表情符號。
+        4. 請不要輸出任何括號。
+        )";
+    mStages[state_index].m_strFirstSentence = "我們來看看腳踏車。騎腳踏車的時候，保護自己的頭是很重要的，那你應該戴上什麼呢？";
+    mStages[state_index].m_secDurationLimit = 30s;
+
+    state_index++;
+    mStages[state_index].m_strStageName = "third ans";
+    mStages[state_index].m_strSystemMessage = R"(你是一台名叫凱比的交通安全宣導機器人，正在和一群年幼的小朋友進行總結。請遵守以下規則：：
+        1. 回答必須使用非常簡潔的中文，不能使用其他語言。
+        2. 所有數字必須使用對應的繁體中文字表示，例如「一」、「二」、「三」，不可使用阿拉伯數字。
+        3. 請不要輸出任何表情符號。
+        4. 請不要輸出任何括號。
+        )";
+    mStages[state_index].m_strFirstSentence = "哇！你們真的都好棒！今天我們學會了怎麼過馬路、怎麼搭公車，還有怎麼安全騎腳踏車。你們都是最棒的交通安全小達人！";
+    mStages[state_index].m_secDurationLimit = 30s;
+
 
     
 }
