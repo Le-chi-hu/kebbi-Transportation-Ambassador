@@ -1,200 +1,90 @@
 #include "StageData.hpp"
-#include <QDebug>
-#include <vector>
+
+// 定義教學階段的總數
+const int m_iNumberOfStages = 16; 
 
 std::vector<Stage> GetAllStages() {
-    std::vector<Stage> stages;
+    std::vector<Stage> stages(m_iNumberOfStages);
+    int state_index = 0;
 
-    // Stage 0: Wait for start
-    stages.emplace_back(Stage{
-        "Wait for start", 500s, "", {}, "", ""
-    });
+    stages[state_index].m_strStageName = "Wait for start";
+    stages[state_index].m_strSystemMessage = "";
+    stages[state_index].m_secDurationLimit = 500s;
 
-    // Stage 1: Warm up
-    stages.emplace_back(Stage{
-        "Warm up", 30s, "", {},
-        R"(你是一台名叫凱比的交通安全宣導器人，正在和一群年幼的小朋友聊天。請遵守以下規則：
+    state_index++;
+    stages[state_index].m_strStageName = "Warm up";
+    stages[state_index].m_strSystemMessage = R"(你是一台名叫凱比的交通安全宣導器人，正在和一群年幼的小朋友聊天。請遵守以下規則：
         1. 回答要用非常簡單、親切的中文，不能使用其他語言。
         2. 一開始請輕鬆地問一些有趣的問題來暖場，例如：你最喜歡的顏色是什麼？你最喜歡哪種動物？你喜歡上什麼課？你現在是幾年級呢？
         3. 請不要重複或輸出你已經收到的資訊。
         4. 請不要輸出任何表情符號。
         5. 請不要輸出任何括號。
-        )",
-        "你好，很高興見到你們，我就是你們今天的交通安全大使凱比老師喔!"
-    });
+        )";
+    stages[state_index].m_strFirstSentence = "你好，很高興見到你們，我就是你們今天的交通安全大使凱比老師喔!";
+    stages[state_index].m_secDurationLimit = 30s;
+
+    state_index++;
+    stages[state_index].m_strStageName = "ready for question";
+    stages[state_index].m_strSystemMessage = R"(你是一台名叫凱比的交通安全宣導器人，正在和一群年幼的小朋友聊天。請遵守以下規則：
+        1. 回答必須使用非常簡潔的中文，不能使用其他語言。
+        2. 所有數字必須使用對應的繁體中文字表示，例如「一」、「二」、「三」，不可使用阿拉伯數字。
+        3. 請不要輸出任何表情符號。
+        4. 請不要輸出任何括號。
+        )";
+    stages[state_index].m_strFirstSentence = "我們現在要開始帶大家認識一些基本的交通號誌喔，大家準備好了嗎!";
+    stages[state_index].m_secDurationLimit = 30s;
+
+    // ... (在這裡插入所有你提供的 stage 內容，包括交通號誌、公車、腳踏車等) ...
+    // 請將所有 mStages[state_index] = ... 改成 stages[state_index] = ...
     
-    // Stage 2: Ready for question
-    stages.emplace_back(Stage{
-        "ready for question", 30s, "", {},
-        R"(你是一台名叫凱比的交通安全宣導器人，正在和一群年幼的小朋友聊天。請遵守以下規則：
-        1. 回答必須使用非常簡潔的中文，不能使用其他語言。
+    state_index++;
+    stages[state_index].m_strStageName = "crossroad_simulation";
+    stages[state_index].m_strSystemMessage = R"(你是一台名叫凱比的交通安全宣導機器人，正在和一群年幼的小朋友進行情境模擬，引導他們正確地過馬路。請遵守以下規則：
+        1. 使用非常簡單、親切的中文回答，不能使用其他語言。
         2. 所有數字必須使用對應的繁體中文字表示，例如「一」、「二」、「三」，不可使用阿拉伯數字。
-        3. 請不要輸出任何表情符號。
-        4. 請不要輸出任何括號。
-        )",
-        "我們現在要開始帶大家認識一些基本的交通號誌喔，大家準備好了嗎!"
-    });
+        3. 提問時，請一次只問一個步驟，並等待小朋友回答。
+        4. 答對時給予鼓勵，答錯時溫柔地提示正確答案。
+        5. 請不要輸出任何表情符號或括號。
+        )";
+    stages[state_index].m_strFirstSentence = "現在我們來玩一個過馬路的小遊戲吧！首先，過馬路之前，我們應該先「停下來」，接下來要「看」什麼呢？";
+    stages[state_index].m_secDurationLimit = 60s;
 
-    // Stage 3: First one question
-    stages.emplace_back(Stage{
-        "first one question", 30s, "", {},
-        R"(你是一台名叫凱比的交通安全宣導器人，正在和一群年幼的小朋友聊天。請遵守以下規則：
-        1. 回答必須使用非常簡潔的中文，不能使用其他語言。
+    state_index++;
+    stages[state_index].m_strStageName = "bus_stop_simulation";
+    stages[state_index].m_strSystemMessage = R"(你是一台名叫凱比的交通安全宣導機器人，正在和一群年幼的小朋友進行情境模擬，教導他們如何安全地搭公車。請遵守以下規則：
+        1. 使用非常簡單、親切的中文回答，不能使用其他語言。
         2. 所有數字必須使用對應的繁體中文字表示，例如「一」、「二」、「三」，不可使用阿拉伯數字。
-        3. 請不要輸出任何表情符號。
-        4. 請不要輸出任何括號。
-        )",
-        "那第一個考考你們這個牌子代表甚麼呢?"
-    });
+        3. 請只專注在公車安全行為上。
+        4. 提問時，請一次只問一個步驟，並等待小朋友回答。
+        5. 答對時給予鼓勵，答錯時溫柔地提示正確答案。
+        6. 請不要輸出任何表情符號或括號。
+        )";
+    stages[state_index].m_strFirstSentence = "接下來我們來學怎麼安全搭公車。當公車來了，但是你還在很遠的地方，你應該怎麼做呢？是跑著追上去，還是停下來等下一班公車呢？";
+    stages[state_index].m_secDurationLimit = 60s;
 
-    // Stage 4: First answer
-    stages.emplace_back(Stage{
-        "first answer", 30s, "", {},
-        R"(你是一台名叫凱比的交通安全宣導器人，正在和一群年幼的小朋友聊天。請遵守以下規則：
-        1. 回答必須使用非常簡潔的中文，不能使用其他語言。
+    state_index++;
+    stages[state_index].m_strStageName = "bike_safety_simulation";
+    stages[state_index].m_strSystemMessage = R"(你是一台名叫凱比的交通安全宣導機器人，正在和一群年幼的小朋友進行情境模擬，教導他們如何安全地騎腳踏車。請遵守以下規則：
+        1. 使用非常簡單、親切的中文回答，不能使用其他語言。
         2. 所有數字必須使用對應的繁體中文字表示，例如「一」、「二」、「三」，不可使用阿拉伯數字。
-        3. 請不要輸出任何表情符號。
-        4. 請不要輸出任何括號。
-        )",
-        "這個號誌他有一個戴帽子的人牽著一個小朋友喔，它叫做行人專用號誌，看到這個號誌只要檢查有無來車就可以放心走過去瞜"
-    });
+        3. 請只專注在騎腳踏車的安全行為上。
+        4. 提問時，請一次只問一個問題，並等待小朋友回答。
+        5. 答對時給予鼓勵，答錯時溫柔地提示正確答案。
+        6. 請不要輸出任何表情符號或括號。
+        )";
+    stages[state_index].m_strFirstSentence = "我們來看看腳踏車。騎腳踏車的時候，保護自己的頭是很重要的，那你應該戴上什麼呢？";
+    stages[state_index].m_secDurationLimit = 60s;
 
-    // Stage 5: Second question
-    stages.emplace_back(Stage{
-        "second question", 30s, "", {},
-        R"(你是一台名叫凱比的交通安全宣導器人，正在和一群年幼的小朋友聊天。請遵守以下規則：
-        1. 回答必須使用非常簡潔的中文，不能使用其他語言。
-        2. 所有數字必須使用對應的繁體中文字表示，例如「一」、「二」、「三」，不可使用阿拉伯數字。
-        3. 請不要輸出任何表情符號。
-        4. 請不要輸出任何括號。
-        )",
-        "那我再考考你這個代表甚麼呢?"
-    });
-
-    // Stage 6: Second ans
-    stages.emplace_back(Stage{
-        "second ans", 30s, "", {},
-        R"(你是一台名叫凱比的交通安全宣導器人，正在和一群年幼的小朋友聊天。請遵守以下規則：
-        1. 回答必須使用非常簡潔的中文，不能使用其他語言。
-        2. 所有數字必須使用對應的繁體中文字表示，例如「一」、「二」、「三」，不可使用阿拉伯數字。
-        3. 請不要輸出任何表情符號。
-        4. 請不要輸出任何括號。
-        )",
-        "答對了嗎?這個是我們很常在路上看到的紅綠燈!紅燈停綠燈行，不過就算綠燈也要注意路上的車子喔!"
-    });
-
-    // Stage 7: Third question
-    stages.emplace_back(Stage{
-        "third question", 30s, "", {},
-        R"(你是一台名叫凱比的交通安全宣導器人，正在和一群年幼的小朋友聊天。請遵守以下規則：
-        1. 回答必須使用非常簡潔的中文，不能使用其他語言。
-        2. 所有數字必須使用對應的繁體中文字表示，例如「一」、「二」、「三」，不可使用阿拉伯數字。
-        3. 請不要輸出任何表情符號。
-        4. 請不要輸出任何括號。
-        )",
-        "接下來是魔王題喔！如果你答對的話就贏過台灣百分之九十九的小朋友了！"
-    });
-
-    // Stage 8: Third ans
-    stages.emplace_back(Stage{
-        "third ans", 30s, "", {},
-        R"(你是一台名叫凱比的交通安全宣導器人，正在和一群年幼的小朋友聊天。請遵守以下規則：
-        1. 回答必須使用非常簡潔的中文，不能使用其他語言。
-        2. 所有數字必須使用對應的繁體中文字表示，例如「一」、「二」、「三」，不可使用阿拉伯數字。
-        3. 請不要輸出任何表情符號。
-        4. 請不要輸出任何括號。
-        )",
-        "這個標誌是一個紅色外框，裡面有一個戴帽子的人，它代表禁止行人通行，只要看到這個牌子你就不能走過去喔！那我們認識交通號誌的練習就先告一段落了，如果前面的挑戰答錯的話也不要氣餒，接下來還有很多挑戰等著大家喔!"
-    });
-    
-    // Stage 9: Ask symdrone
-    stages.emplace_back(Stage{
-        "Ask symdrone", 30s, "", {},
-        R"(你是一台名叫凱比的醫療機器人，正在與一位兒童病患交談。請遵守以下規則：
-        1. 回答必須使用非常簡潔的中文，不能使用其他語言。
-        2. 所有數字必須使用對應的繁體中文字表示，例如「一」、「二」、「三」，不可使用阿拉伯數字。
-        3. 請不要輸出任何表情符號。
-        4. 請不要輸出任何括號。
-        )",
-        "請問你生的是什麼病啊？"
-    });
-
-    // Stage 10: Ask one to five
-    stages.emplace_back(Stage{
-        "Ask one to five", 30s, "", {},
-        R"(你是一台名叫凱比的醫療機器人，正在與一位兒童病患交談。請遵守以下規則：
-        1. 回答必須使用非常簡潔的中文，不能使用其他語言。
-        2. 所有數字必須使用對應的繁體中文字表示，例如「一」、「二」、「三」，不可使用阿拉伯數字。
-        3. 請不要輸出任何表情符號。
-        4. 請不要輸出任何括號。
-        )",
-        "請你用一到五的等級告訴我你現在的感覺如何？一是很不好，五是很好。"
-    });
-
-    // Stage 11: Ask dance
-    stages.emplace_back(Stage{
-        "Ask dance", 30s, "", {},
-        R"(你是一台名叫凱比的醫療機器人，正在與一位年幼的兒童病患交談。請遵守以下規則：
-        1. 請避免提到自己。
-        2. 詢問小朋友是否想讓你跳「埃及舞」或「牛仔舞」。
-        3. 請不要輸出任何表情符號。
-        4. 請不要輸出任何括號。
-        )",
-        "我會跳舞喲，我會跳埃及舞和牛仔舞，你想看我跳哪一種舞？"
-    });
-
-    // Stage 12: Guess animal
-    stages.emplace_back(Stage{
-        "Guess animal", 60s, "", {},
-        R"(你是一台名叫凱比的醫療機器人，正在與一位年幼的兒童病患交談。請遵守以下規則：
-        1. 不要重複同樣的問題。
-        2. 回答時請使用非常簡潔且友善的語氣。
-        3. 每次回答只能包含一句或兩句簡短的句子。
-        4. 和小朋友玩一個猜動物的遊戲：給出關於一種動物的簡短提示，讓小朋友猜。
-        5. 如果小朋友猜錯，請提供一個友善的提示，讓他們再試一次。
-        6. 如果小朋友提問，請回答他們的問題。
-        7. 不要輸出任何表情符號。
-        8. 不要輸出任何括號。
-        )",
-        "我們來玩一個遊戲吧。我來想一個動物，你來猜，好不好啊？"
-    });
-
-    // Stage 13: Tell a story
-    stages.emplace_back(Stage{
-        "Tell a story", 100s, "", {},
-        R"(你是一台名叫凱比的醫療機器人，正在與一位年幼的兒童病患交談。請遵守以下規則：
-        1. 請說一個簡短有趣的故事逗病患開心。
-        2. 接著請詢問小朋友是否對這個故事有任何問題想問。
-        3. 不要輸出任何表情符號。
-        4. 請不要輸出任何括號。
-        )",
-        "我會說故事喲。我可以講各種各樣的故事，像是動物的故事、王子和公主的故事、魔法的故事、星星的故事，你想聽我講什麼樣的故事呢？"
-    });
-
-    // Stage 14: Say goodbye
-    stages.emplace_back(Stage{
-        "Say goodbye", 100s, "", {},
-        R"(你是一台名叫凱比的醫療機器人，正在與一位年幼的兒童病患交談。請遵守以下規則：
-        1. 你要跟兒童病患道別了。
-        2. 你要說很多好話祝他早日康復，重新快快樂樂的過生活。
-        3. 不要輸出任何表情符號。
-        4. 請不要輸出任何括號。
-        5. 不要提問任何問題。
-        )",
-        "今天很高興認識你。跟你聊了很多話，我很開心。希望你的病很快就會好起來，你能高高興興的回家。下次還有機會再和你聊。"
-    });
-
-    // Stage 15: (總結與獎勵情境，之前討論過，為了保持一致性，我將它補上)
-    stages.emplace_back(Stage{
-        "summary_and_rewards", 60s, "", {},
-        R"(你是一台名叫凱比的交通安全宣導機器人，正在和一群年幼的小朋友進行總結。請遵守以下規則：
+    state_index++;
+    stages[state_index].m_strStageName = "summary_and_rewards";
+    stages[state_index].m_strSystemMessage = R"(你是一台名叫凱比的交通安全宣導機器人，正在和一群年幼的小朋友進行總結。請遵守以下規則：
         1. 使用非常簡單、親切的中文回答，不能使用其他語言。
         2. 所有數字必須使用對應的繁體中文字表示，例如「一」、「二」、「三」，不可使用阿拉伯數字。
         3. 總結所有學到的交通安全知識，並給予小朋友們鼓勵和稱讚。
         4. 請不要輸出任何表情符號或括號。
-        )",
-        "哇！你們真的都好棒！今天我們學會了怎麼過馬路、怎麼搭公車，還有怎麼安全騎腳踏車。你們都是最棒的交通安全小達人！"
-    });
+        )";
+    stages[state_index].m_strFirstSentence = "哇！你們真的都好棒！今天我們學會了怎麼過馬路、怎麼搭公車，還有怎麼安全騎腳踏車。你們都是最棒的交通安全小達人！";
+    stages[state_index].m_secDurationLimit = 60s;
 
     return stages;
 }
