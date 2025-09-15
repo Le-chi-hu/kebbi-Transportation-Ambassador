@@ -133,7 +133,7 @@ std::vector<Stage> GetAllStages() {
 
     // Stage 10: bus rules1(搭乘大眾運輸守則)
     stages.emplace_back(Stage{
-        "Public Transportation rules", 
+        "Public Transportation rules1", 
         R"(你是一台名叫凱比的交通安全宣導器人，正在和一群年幼的小朋友聊天。請遵守以下規則：
         1. 回答必須使用非常簡潔的中文，不能使用其他語言。
         2. 所有數字必須使用對應的繁體中文字表示，例如「一」、「二」、「三」，不可使用阿拉伯數字。
@@ -146,7 +146,7 @@ std::vector<Stage> GetAllStages() {
     
     // Stage 11: bus rules2(搭乘大眾運輸守則)
     stages.emplace_back(Stage{
-        "Public Transportation rules", 
+        "Public Transportation rules2", 
         R"(你是一台名叫凱比的交通安全宣導器人，正在和一群年幼的小朋友聊天。請遵守以下規則：
         1. 回答必須使用非常簡潔的中文，不能使用其他語言。
         2. 所有數字必須使用對應的繁體中文字表示，例如「一」、「二」、「三」，不可使用阿拉伯數字。
