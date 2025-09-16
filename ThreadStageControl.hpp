@@ -1,34 +1,29 @@
-#ifndef _THREAD_STAGE_CONTROL_hpp_
-#define _THREAD_STAGE_CONTROL_hpp_
-
-#include <chrono>
+#pragma once
 #include <string>
-#include <QThread>
+#include <vector>
+#include <chrono>
 
-using namespace std;
-
-struct Stage
-{
-    string m_strStageName;
-    chrono::seconds m_secDurationLimit;
-    string m_strSummary;
-    chrono::time_point<std::chrono::high_resolution_clock> m_Start_time;
-    string m_strSystemMessage;
-    string m_strFirstSentence;
+struct Stage {
+    std::string m_strStageName;        
+    std::string m_strSystemMessage;    
+    std::string m_strInitMessage;      
+    std::chrono::seconds m_secDurationLimit;
 };
 
-class ThreadStageControl: public QThread
-{
-    Q_OBJECT
-
+class ThreadStageControl {
 public:
     ThreadStageControl();
     ~ThreadStageControl();
 
-protected:
-    vector<Stage> mStages;
-    int m_iNumberOfStages = 9;
+    
     void InitializeStage();
-};
 
-#endif 
+    const std::vector<Stage>& GetStages() const noexcept { return mStages; }
+    int GetNumberOfStages() const noexcept { return m_iNumberOfStages; }
+
+private:
+    std::vector<Stage> mStages;
+    int m_iNumberOfStages = 0;
+
+    static std::vector<Stage> BuildDefaultStages();
+};
