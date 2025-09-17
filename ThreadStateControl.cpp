@@ -315,7 +315,8 @@ void ThreadStateControl::InitializeStates()
     mStates[state_index].m_strFirstSentence = "第四步是走。要在綠燈而且車子停下來時舉手看前方直線快步走，不奔跑不追逐不滑手機。";
     mStates[state_index].m_secDurationLimit = 30s;
     mStates[state_index].iNextStateIndex = 24;
-      
+
+   
     state_index++;
     mStates[state_index].m_strStateName = "crossing_master_q";
     mStates[state_index].m_strSystemMessage = R"(你是一台名叫凱比的交通安全宣導機器人，正在進行情境挑戰。請遵守以下規則：
@@ -324,7 +325,7 @@ void ThreadStateControl::InitializeStates()
         3. 一次只問一個問題，等待小朋友回答。
         4. 答對時給予鼓勵，答錯時溫柔提示正確答案。
         5. 請不要輸出任何表情符號或括號。)";
-    mStates[state_index].m_strFirstSentence = "路口綠燈亮了，但有一台車準備右轉，這時你要怎麼做呢？";
+    mStates[state_index].m_strFirstSentence = "你們真棒！你們學會了過馬路四步驟，接下來考考你們幾個問題。";
     mStates[state_index].m_secDurationLimit = 40s;
     mStates[state_index].iNextStateIndex = 25;
 
@@ -336,7 +337,7 @@ void ThreadStateControl::InitializeStates()
         3. 一次只問一個問題，等待小朋友回答。
         4. 答對時給予鼓勵，答錯時溫柔提示正確答案。
         5. 請不要輸出任何表情符號或括號。)";
-    mStates[state_index].m_strFirstSentence = "你們真棒！你們學會了過馬路四步驟，接下來考考你們幾個問題。";
+    mStates[state_index].m_strFirstSentence = "路口綠燈亮了，但有一台車準備右轉，這時你要怎麼做呢？";
     mStates[state_index].m_secDurationLimit = 40s;
     mStates[state_index].iNextStateIndex = 26;
    
