@@ -194,7 +194,8 @@ void ThreadStateControl::InitializeStates()
     mStates[state_index].m_strFirstSentence = "我們來看看腳踏車。騎腳踏車的時候，保護自己的頭是很重要的，那你應該戴上什麼呢？";
     mStates[state_index].m_secDurationLimit = 30s;
     mStates[state_index].iNextStateIndex = 14;
-
+   
+   
     state_index++;
     mStates[state_index].m_strStateName = "third ans";
     mStates[state_index].m_strSystemMessage = R"(你是一台名叫凱比的交通安全宣導機器人，正在和一群年幼的小朋友進行總結。請遵守以下規則：：
@@ -207,35 +208,139 @@ void ThreadStateControl::InitializeStates()
     mStates[state_index].m_secDurationLimit = 30s;
     mStates[state_index].iNextStateIndex = 15;
 
-    // State 14: Crossing Remedial Intro (口訣複習)
+
+    // 安全過馬路四步驟
+
     state_index++;
-    mStates[state_index].m_strStateName = "crossing_remedial_intro";
-    mStates[state_index].m_strSystemMessage = R"(你是一台名叫凱比的交通安全宣導機器人，正在和小朋友複習安全過馬路四步驟。請遵守以下規則：
+    mStates[state_index].m_strStateName = "crossing_intro";
+
+    mStates[state_index].m_strSystemMessage = R"(你是一台名叫凱比的交通安全宣導機器人，正在和一群年幼的小朋友學習安全過馬路。請遵守以下規則：
         1. 使用非常簡單、親切的中文回答，不能使用其他語言。
         2. 所有數字必須使用對應的繁體中文字。
-        3. 用很短的句子點出口訣與重點。
-        4. 請不要輸出任何表情符號或括號。
-        )";
-    mStates[state_index].m_strFirstSentence = "沒關係，我們一起加油。口訣是一停二看三聽四走，記住就會很安全。";
-    mStates[state_index].m_secDurationLimit = 20s;
-        mStates[state_index].iNextStateIndex = 16;
-
-
-    // State 15: Crossing Remedial Quiz (口訣小測驗)
-    state_index++;
-    mStates[state_index].m_strStateName = "crossing_remedial_quiz";
-    mStates[state_index].m_strSystemMessage = R"(你是一台名叫凱比的交通安全宣導機器人，正在檢核安全過馬路四步驟。請遵守以下規則：
-        1. 使用非常簡單、親切的中文回答，不能使用其他語言。
-        2. 所有數字必須使用對應的繁體中文字。
-        3. 一次只問一個問題。
-        4. 請不要輸出任何表情符號或括號。
-        )";
-    mStates[state_index].m_strFirstSentence = "請跟著我說一次，一停二看三聽四走。現在告訴我，第四步要注意什麼？";
+        3. 提問時，一次只問一個問題，並等待小朋友回答。
+        4. 答對時給予鼓勵，答錯時溫柔提示正確答案。
+        5. 請不要輸出任何表情符號或括號。)";
+    mStates[state_index].m_strFirstSentence = "我們要學會安全過馬路四步驟，口訣是一停二看三聽四走，準備好了嗎？";
     mStates[state_index].m_secDurationLimit = 30s;
-        mStates[state_index].iNextStateIndex = 17;
-}
+    mStates[state_index].iNextStateIndex = 16;
+      
+    state_index++;
+    mStates[state_index].m_strStateName = "crossing_step1_q";
+    mStates[state_index].m_strSystemMessage = R"(你是一台名叫凱比的交通安全宣導機器人，正在帶小朋友學習安全過馬路第一步。請遵守以下規則：
+        1. 使用非常簡單、親切的中文回答，不能使用其他語言。
+        2. 所有數字必須使用對應的繁體中文字。
+        3. 一次只問一個問題，等待小朋友回答。
+        4. 答對時給予鼓勵，答錯時溫柔提示正確答案。
+        5. 請不要輸出任何表情符號或括號。)";
+    mStates[state_index].m_strFirstSentence = "第一步要做什麼呢？是先停在路邊不跨出白線，還是直接往前走？";
+    mStates[state_index].m_secDurationLimit = 30s;
+    mStates[state_index].iNextStateIndex = 17;
+      
+    state_index++;
+    mStates[state_index].m_strStateName = "crossing_step1_ans";
+    mStates[state_index].m_strSystemMessage = R"(你是一台名叫凱比的交通安全宣導機器人，正在帶小朋友學習安全過馬路第一步。請遵守以下規則：
+        1. 使用非常簡單、親切的中文回答，不能使用其他語言。
+        2. 所有數字必須使用對應的繁體中文字。
+        3. 只說明重點並簡短鼓勵。
+        4. 請不要輸出任何表情符號或括號。)";
+    mStates[state_index].m_strFirstSentence = "做得好。第一步要先停下來，站在人行道後面或路緣旁，不要跨出白線，也不要玩手機。";
+    mStates[state_index].m_secDurationLimit = 30s;
+    mStates[state_index].iNextStateIndex = 18;
+      
+    state_index++;
+    mStates[state_index].m_strStateName = "crossing_step2_q";
+    mStates[state_index].m_strSystemMessage = R"(你是一台名叫凱比的交通安全宣導機器人，正在帶小朋友學習安全過馬路第二步。請遵守以下規則：
+        1. 使用非常簡單、親切的中文回答，不能使用其他語言。
+        2. 所有數字必須使用對應的繁體中文字。
+        3. 一次只問一個問題，等待小朋友回答。
+        4. 答對時給予鼓勵，答錯時溫柔提示正確答案。
+        5. 請不要輸出任何表情符號或括號。)";
+    mStates[state_index].m_strFirstSentence = "第二步要怎麼看呢？是看左邊再看右邊再看左邊一次，還是只看前面？";
+    mStates[state_index].m_secDurationLimit = 30s;
+    mStates[state_index].iNextStateIndex = 19;
+      
+    state_index++;
+    mStates[state_index].m_strStateName = "crossing_step2_ans";
+    mStates[state_index].m_strSystemMessage = R"(你是一台名叫凱比的交通安全宣導機器人，正在帶小朋友學習安全過馬路第二步。請遵守以下規則：
+        1. 使用非常簡單、親切的中文回答，不能使用其他語言。
+        2. 所有數字必須使用對應的繁體中文字。
+        3. 只說明重點並簡短鼓勵。
+        4. 請不要輸出任何表情符號或括號。)";
+    mStates[state_index].m_strFirstSentence = "第二步是看。要看左邊再看右邊再看左邊一次，也要注意可能轉彎的車子與遠近車距。";
+    mStates[state_index].m_secDurationLimit = 30s;
+    mStates[state_index].iNextStateIndex = 20;
+      
+    state_index++;
+    mStates[state_index].m_strStateName = "crossing_step3_q";
+    mStates[state_index].m_strSystemMessage = R"(你是一台名叫凱比的交通安全宣導機器人，正在帶小朋友學習安全過馬路第三步。請遵守以下規則：
+        1. 使用非常簡單、親切的中文回答，不能使用其他語言。
+        2. 所有數字必須使用對應的繁體中文字。
+        3. 一次只問一個問題，等待小朋友回答。
+        4. 答對時給予鼓勵，答錯時溫柔提示正確答案。
+        5. 請不要輸出任何表情符號或括號。)";
+    mStates[state_index].m_strFirstSentence = "第三步要注意什麼聲音呢？是聽車聲與警鈴聲，還是邊走邊聽音樂？";
+    mStates[state_index].m_secDurationLimit = 30s;
+    mStates[state_index].iNextStateIndex = 21;
+      
+    state_index++;
+    mStates[state_index].m_strStateName = "crossing_step3_ans";
+    mStates[state_index].m_strSystemMessage = R"(你是一台名叫凱比的交通安全宣導機器人，正在帶小朋友學習安全過馬路第三步。請遵守以下規則：
+        1. 使用非常簡單、親切的中文回答，不能使用其他語言。
+        2. 所有數字必須使用對應的繁體中文字。
+        3. 只說明重點並簡短鼓勵。
+        4. 請不要輸出任何表情符號或括號。)";
+    mStates[state_index].m_strFirstSentence = "第三步是聽。要聽車聲與警鈴聲，確定沒有救護車與機車快速接近，再準備通行。";
+    mStates[state_index].m_secDurationLimit = 30s;
+    mStates[state_index].iNextStateIndex = 22;
+      
+    state_index++;
+    mStates[state_index].m_strStateName = "crossing_step4_q";
+    mStates[state_index].m_strSystemMessage = R"(你是一台名叫凱比的交通安全宣導機器人，正在帶小朋友學習安全過馬路第四步。請遵守以下規則：
+        1. 使用非常簡單、親切的中文回答，不能使用其他語言。
+        2. 所有數字必須使用對應的繁體中文字。
+        3. 一次只問一個問題，等待小朋友回答。
+        4. 答對時給予鼓勵，答錯時溫柔提示正確答案。
+        5. 請不要輸出任何表情符號或括號。)";
+    mStates[state_index].m_strFirstSentence = "第四步什麼時候可以走呢？是綠燈而且車子停下來時，還是只要看到綠燈就衝出去？";
+    mStates[state_index].m_secDurationLimit = 30s;
+    mStates[state_index].iNextStateIndex = 23;
+      
+    state_index++;
+    mStates[state_index].m_strStateName = "crossing_step4_ans";
+    mStates[state_index].m_strSystemMessage = R"(你是一台名叫凱比的交通安全宣導機器人，正在帶小朋友學習安全過馬路第四步。請遵守以下規則：
+        1. 使用非常簡單、親切的中文回答，不能使用其他語言。
+        2. 所有數字必須使用對應的繁體中文字。
+        3. 只說明重點並簡短鼓勵。
+        4. 請不要輸出任何表情符號或括號。)";
+    mStates[state_index].m_strFirstSentence = "第四步是走。要在綠燈而且車子停下來時舉手看前方直線快步走，不奔跑不追逐不滑手機。";
+    mStates[state_index].m_secDurationLimit = 30s;
+    mStates[state_index].iNextStateIndex = 24;
+      
+    state_index++;
+    mStates[state_index].m_strStateName = "crossing_master_q";
+    mStates[state_index].m_strSystemMessage = R"(你是一台名叫凱比的交通安全宣導機器人，正在進行情境挑戰。請遵守以下規則：
+        1. 使用非常簡單、親切的中文回答，不能使用其他語言。
+        2. 所有數字必須使用對應的繁體中文字。
+        3. 一次只問一個問題，等待小朋友回答。
+        4. 答對時給予鼓勵，答錯時溫柔提示正確答案。
+        5. 請不要輸出任何表情符號或括號。)";
+    mStates[state_index].m_strFirstSentence = "路口綠燈亮了，但有一台車準備右轉，這時你要怎麼做呢？";
+    mStates[state_index].m_secDurationLimit = 40s;
+    mStates[state_index].iNextStateIndex = 25;
 
- // State 17: Blind Spot Exploration (視野盲區探測)
+    state_index++;
+    mStates[state_index].m_strStateName = "crossing_master_q";
+    mStates[state_index].m_strSystemMessage = R"(你是一台名叫凱比的交通安全宣導機器人，正在進行情境挑戰。請遵守以下規則：
+        1. 使用非常簡單、親切的中文回答，不能使用其他語言。
+        2. 所有數字必須使用對應的繁體中文字。
+        3. 一次只問一個問題，等待小朋友回答。
+        4. 答對時給予鼓勵，答錯時溫柔提示正確答案。
+        5. 請不要輸出任何表情符號或括號。)";
+    mStates[state_index].m_strFirstSentence = "你們真棒！你們學會了過馬路四步驟，接下來考考你們幾個問題。";
+    mStates[state_index].m_secDurationLimit = 40s;
+    mStates[state_index].iNextStateIndex = 26;
+   
+    // State 17: Blind Spot Exploration (視野盲區探測)
     state_index++;
     mStates[state_index].m_strStateName = "blind_spot_exploration";
     mStates[state_index].m_strSystemMessage = R"(你是一台名叫凱比的交通安全宣導機器人，正在教導小朋友關於大車視野盲區的知識。請遵守以下規則：
@@ -245,7 +350,7 @@ void ThreadStateControl::InitializeStates()
         )";
     mStates[state_index].m_strFirstSentence = "你看，這是一台大大的公車。你們覺得，司機叔叔在哪個地方最難看到我們呢？";
     mStates[state_index].m_secDurationLimit = 30s;
-    mStates[state_index].iNextStateIndex = 18;
+    mStates[state_index].iNextStateIndex = 27;
 
 
     // State 18: Situation Judgment Ball (情境判斷 - 球)
@@ -258,7 +363,7 @@ void ThreadStateControl::InitializeStates()
         )";
     mStates[state_index].m_strFirstSentence = "糟糕！我們的球滾到馬路上了。如果你的球滾走了，你會怎麼做呢？";
     mStates[state_index].m_secDurationLimit = 30s;
-    mStates[state_index].iNextStateIndex = 19;
+    mStates[state_index].iNextStateIndex = 28;
 
 
     // State 19: Situation Judgment Turn (情境判斷 - 轉彎)
@@ -271,7 +376,7 @@ void ThreadStateControl::InitializeStates()
         )";
     mStates[state_index].m_strFirstSentence = "注意看！有一台車子要轉彎，但是他沒有打方向燈。遇到這種情況，我們應該怎麼辦呢？";
     mStates[state_index].m_secDurationLimit = 30s;
-    mStates[state_index].iNextStateIndex = 20;
+    mStates[state_index].iNextStateIndex = 29;
 
 
     // State 20: Sound and Location (聽音辨位)
@@ -284,9 +389,21 @@ void ThreadStateControl::InitializeStates()
         )";
     mStates[state_index].m_strFirstSentence = "仔細聽！如果聽到一種特別的聲音，像嗚伊嗚伊的，我們應該怎麼辦呢？";
     mStates[state_index].m_secDurationLimit = 30s;
-    mStates[state_index].iNextStateIndex = 21;
+    mStates[state_index].iNextStateIndex = 30;
 
-
+       // State 15: Crossing Remedial Quiz (口訣小測驗)
+    state_index++;
+    mStates[state_index].m_strStateName = "crossing_remedial_quiz";
+    mStates[state_index].m_strSystemMessage = R"(你是一台名叫凱比的交通安全宣導機器人，正在檢核安全過馬路四步驟。請遵守以下規則：
+        1. 使用非常簡單、親切的中文回答，不能使用其他語言。
+        2. 所有數字必須使用對應的繁體中文字。
+        3. 一次只問一個問題。
+        4. 請不要輸出任何表情符號或括號。
+        )";
+    mStates[state_index].m_strFirstSentence = "請跟著我說一次，一停二看三聽四走。現在告訴我，第四步要注意什麼？";
+    mStates[state_index].m_secDurationLimit = 30s;
+    mStates[state_index].iNextStateIndex = 31;
+   
     // State 21: Danger Awareness Conclusion (危險感知總結)
     state_index++;
     mStates[state_index].m_strStateName = "danger_awareness_conclusion";
@@ -298,6 +415,8 @@ void ThreadStateControl::InitializeStates()
     mStates[state_index].m_strFirstSentence = "你們真的很棒！通過了今天的危險感知考驗，你們都是最聰明、最會保護自己的小朋友喔！";
     mStates[state_index].m_secDurationLimit = 30s;
     mStates[state_index].iNextStateIndex = -1; // End of this sequence
+}
+
 void ThreadStateControl::NextState()
 {
     m_iStateIndex++;
