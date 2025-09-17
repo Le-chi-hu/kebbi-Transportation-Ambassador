@@ -37,7 +37,7 @@ void ThreadStateControl::InitializeStates()
     mStates[state_index].m_strStateName = "Warm up";
     mStates[state_index].m_strSystemMessage = R"(你是一台名叫凱比的交通安全宣導器人，正在和一群年幼的小朋友聊天。請遵守以下規則：
         1. 回答要用非常簡單、親切的中文，不能使用其他語言。
-        2. 一開始請輕鬆地問一些有趣的問題來暖場，例如：你最喜歡的顏色是什麼？你最喜歡哪種動物？你喜歡上什麼課？你現在是幾年級呢？
+        2. 一開始請輕鬆地問一些有趣的問題來暖場，例如：你平常怎麼去學校的啊？你喜歡上什麼課？你現在是幾年級呢？
         3. 請不要重複或輸出你已經收到的資訊。
         4. 請不要輸出任何表情符號。
         5. 請不要輸出任何括號。
@@ -56,7 +56,7 @@ void ThreadStateControl::InitializeStates()
         4. 請不要輸出任何括號。
         )";
     mStates[state_index].m_strFirstSentence = "我們現在要開始帶大家認識一些基本的交通號誌喔，大家準備好了嗎!";
-    mStates[state_index].m_secDurationLimit = 30s;
+    mStates[state_index].m_secDurationLimit = 10s;
     mStates[state_index].iNextStateIndex = 3;
 
     state_index++;
@@ -68,7 +68,7 @@ void ThreadStateControl::InitializeStates()
         4. 請不要輸出任何括號。
         )";
     mStates[state_index].m_strFirstSentence = "那第一個考考你們這個牌子代表甚麼呢?";
-    mStates[state_index].m_secDurationLimit = 30s;
+    mStates[state_index].m_secDurationLimit = 8s;
     mStates[state_index].iNextStateIndex = 4;
 
     state_index++;
@@ -80,7 +80,7 @@ void ThreadStateControl::InitializeStates()
         4. 請不要輸出任何括號。
         )";
     mStates[state_index].m_strFirstSentence = "這個號誌他有一個戴帽子的人牽著一個小朋友喔，它叫做行人專用號誌，看到這個號誌只要檢查有無來車就可以放心走過去瞜";
-    mStates[state_index].m_secDurationLimit = 30s;
+    mStates[state_index].m_secDurationLimit = 12s;
     mStates[state_index].iNextStateIndex = 5;
 
 
@@ -93,7 +93,7 @@ void ThreadStateControl::InitializeStates()
         4. 請不要輸出任何括號。
         )";
     mStates[state_index].m_strFirstSentence = "那我再考考你這個代表甚麼呢?";
-    mStates[state_index].m_secDurationLimit = 30s;
+    mStates[state_index].m_secDurationLimit = 8s;
     mStates[state_index].iNextStateIndex = 6;
 
     state_index++;
@@ -105,7 +105,7 @@ void ThreadStateControl::InitializeStates()
         4. 請不要輸出任何括號。
         )";
     mStates[state_index].m_strFirstSentence = "答對了嗎?這個是我們很常在路上看到的紅綠燈!紅燈停綠燈行，不過就算綠燈也要注意路上的車子喔!";
-    mStates[state_index].m_secDurationLimit = 30s;
+    mStates[state_index].m_secDurationLimit = 12s;
     mStates[state_index].iNextStateIndex = 7;
 
     state_index++;
@@ -117,7 +117,7 @@ void ThreadStateControl::InitializeStates()
         4. 請不要輸出任何括號。
         )";
     mStates[state_index].m_strFirstSentence = "接下來是魔王題喔！如果你答對的話就贏過台灣99%的小朋友了！";
-    mStates[state_index].m_secDurationLimit = 30s;
+    mStates[state_index].m_secDurationLimit = 8s;
     mStates[state_index].iNextStateIndex = 8;
 
     state_index++;
@@ -129,7 +129,7 @@ void ThreadStateControl::InitializeStates()
         4. 請不要輸出任何括號。
         )";
     mStates[state_index].m_strFirstSentence = "這個標誌是一個紅色外框，裡面有一個戴帽子的人，它代表禁止行人通行，只要看到這個牌子你就不能走過去喔！那我們認識交通號誌的練習就先告一段落了，如果前面的挑戰答錯的話也不要氣餒，接下來還有很多挑戰等著大家喔!";
-    mStates[state_index].m_secDurationLimit = 30s;
+    mStates[state_index].m_secDurationLimit = 15s;
     mStates[state_index].iNextStateIndex = 9;
 
    state_index++;
