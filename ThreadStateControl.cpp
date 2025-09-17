@@ -220,7 +220,7 @@ void ThreadStateControl::InitializeStates()
         3. 提問時，一次只問一個問題，並等待小朋友回答。
         4. 答對時給予鼓勵，答錯時溫柔提示正確答案。
         5. 請不要輸出任何表情符號或括號。)";
-    mStates[state_index].m_strFirstSentence = "我們要學會安全過馬路四步驟，口訣是一停二看三聽四走，準備好了嗎？";
+    mStates[state_index].m_strFirstSentence = "接下來我們要學會安全過馬路四步驟，口訣是一停二看三聽四走，準備好了嗎？";
     mStates[state_index].m_secDurationLimit = 30s;
     mStates[state_index].iNextStateIndex = 16;
       
