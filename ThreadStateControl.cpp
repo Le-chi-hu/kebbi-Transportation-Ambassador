@@ -19,16 +19,10 @@ void ThreadStateControl::InitializeStates()
     mStates.resize(m_iNumberOfStates);
     int state_index = 0;
 
-
-//    mStates[state_index].m_strStateName = "Wait for start";
-//    mStates[state_index].m_strSystemMessage = "";
-//    mStates[state_index].m_secDurationLimit = 500s;
-//    mStates[state_index].iNextStateIndex = 1;
-
     mStates[state_index].m_strStateName = "Wait for start";
     mStates[state_index].m_strSystemMessage = "";
     mStates[state_index].m_strFirstSentence = "我準備好了。";
-    mStates[state_index].m_secDurationLimit = 500s;
+    mStates[state_index].m_secDurationLimit = 10s;
     mStates[state_index].iNextStateIndex = 1;
     mStates[state_index].sFace = "TTS_PeaceA";
     mStates[state_index].sMotion = "666_BA_RArmR180";
@@ -43,7 +37,7 @@ void ThreadStateControl::InitializeStates()
         5. 請不要輸出任何括號。
         )";
     mStates[state_index].m_strFirstSentence = "你好，很高興見到你們，我就是你們今天的交通安全大使凱比老師喔!";
-    mStates[state_index].m_secDurationLimit = 30s;
+    mStates[state_index].m_secDurationLimit = 5s;
     mStates[state_index].iNextStateIndex = 2;
 
 
